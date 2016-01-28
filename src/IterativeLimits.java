@@ -45,7 +45,7 @@ public class IterativeLimits {
     }
 
     private void drawLimits() {
-        gc.setStroke(Color.RED);
+        gc.setStroke(Color.BLUE);
         gc.setLineWidth(1.5);
         List<Double> last = coordinates.get(0.0);
         for (Double coordinate = step; coordinate < 4.0; coordinate += step) {
@@ -68,7 +68,7 @@ public class IterativeLimits {
                 }
                 last = now;
             } else {
-                gc.setStroke(Color.BLUE);
+                gc.setStroke(Color.GREEN);
                 gc.strokeLine(indentX + (int) (coordinate / scaleX), indentY, indentX + (int) (coordinate / scaleX), zeroY);
                 gc.strokeText(coordinate.toString().substring(0, Math.min(((Double) step).toString().length() + 1, coordinate.toString().length())), zeroX - 10 + (int) (coordinate / scaleX), zeroY + 2 * indentY - 10);
                 return;
