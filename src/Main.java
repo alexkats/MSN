@@ -20,6 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math3.util.DoubleArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -137,7 +138,15 @@ public class Main extends Application {
         });
 
         leftButtons.get(LIMITS).setOnAction(event -> {
-
+            chart.setVisible(false);
+            canvas.setVisible(true);
+            double r = Double.parseDouble(X0TextField.getText());
+            double x0 = Double.parseDouble(RTextField.getText());
+            canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+            IterativeSolver iterativeSolver = new IterativeSolver(r, x0);
+            Map<Double, List<Double>> results = iterativeSolver.getLims();
+            IterativeLimits iterativeLimits = new IterativeLimits(results, canvas);
+            iterativeLimits.draw();
         });
 
         leftButtons.get(SERIES).setOnAction(event -> {
@@ -157,11 +166,20 @@ public class Main extends Application {
             }
 
             series.setData(datas);
+            series.setName("x_0 = " + x0 + "; r = " + r);
             chart.getData().add(series);
         });
 
         leftButtons.get(TRAJECTORY).setOnAction(event -> {
-
+            chart.setVisible(false);
+            canvas.setVisible(true);
+            double r = Double.parseDouble(X0TextField.getText());
+            double x0 = Double.parseDouble(RTextField.getText());
+            canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+            IterativeSolver iterativeSolver = new IterativeSolver(r, x0);
+            List<Double> results = iterativeSolver.solve(150);
+            IterativeTrajectory iterativeTrajectory = new IterativeTrajectory(results, r, canvas);
+            iterativeTrajectory.draw();
         });
 
         topButtonsField.getChildren().addAll(topButtons);
