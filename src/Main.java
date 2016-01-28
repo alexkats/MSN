@@ -67,11 +67,11 @@ public class Main extends Application {
         leftButtons.add(new Button("Draw plot for X_n series"));
         leftButtons.add(new Button("Draw trajectory plot"));
         HBox X0Box = new HBox(10);
-        Text X0Text = new Text("x_0");
+        Text X0Text = new Text("x0");
         X0TextField = new TextField("3");
         X0Box.getChildren().addAll(X0Text, X0TextField);
         HBox RBox = new HBox(10);
-        Text RText = new Text("r");
+        Text RText = new Text("  r ");
         RTextField = new TextField("0.5");
         RBox.getChildren().addAll(RText, RTextField);
         LineChart<Number, Number> chart = new LineChart<>(new NumberAxis(), new NumberAxis());
@@ -165,7 +165,7 @@ public class Main extends Application {
             }
 
             series.setData(datas);
-            series.setName("x_0 = " + x0 + "; r = " + r);
+            series.setName("x0 = " + x0 + "; r = " + r);
             chart.getData().add(series);
         });
 
