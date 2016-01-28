@@ -1,13 +1,9 @@
-/**
- * Created by Alex on 24.12.15.
- */
-
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-import java.io.*;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 public class IterativeLimits {
     private static final double scaleX = 0.008;

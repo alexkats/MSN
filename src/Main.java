@@ -20,7 +20,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.commons.math3.complex.Complex;
-import org.apache.commons.math3.util.DoubleArray;
 
 import java.util.ArrayList;
 import java.util.List;
