@@ -68,11 +68,11 @@ public class Main extends Application {
         leftButtons.add(new Button("Draw trajectory plot"));
         HBox X0Box = new HBox(10);
         Text X0Text = new Text("x0");
-        X0TextField = new TextField("3");
+        X0TextField = new TextField("0.5");
         X0Box.getChildren().addAll(X0Text, X0TextField);
         HBox RBox = new HBox(10);
         Text RText = new Text("  r ");
-        RTextField = new TextField("0.5");
+        RTextField = new TextField("1.5");
         RBox.getChildren().addAll(RText, RTextField);
         LineChart<Number, Number> chart = new LineChart<>(new NumberAxis(), new NumberAxis());
         chart.setCreateSymbols(true);
@@ -139,8 +139,8 @@ public class Main extends Application {
         leftButtons.get(LIMITS).setOnAction(event -> {
             chart.setVisible(false);
             canvas.setVisible(true);
-            double r = Double.parseDouble(X0TextField.getText());
-            double x0 = Double.parseDouble(RTextField.getText());
+            double r = Double.parseDouble(RTextField.getText());
+            double x0 = Double.parseDouble(X0TextField.getText());
             canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
             IterativeSolver iterativeSolver = new IterativeSolver(r, x0);
             Map<Double, List<Double>> results = iterativeSolver.getLims();
@@ -154,8 +154,8 @@ public class Main extends Application {
             canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
             XYChart.Series series = new XYChart.Series();
             ObservableList<XYChart.Data> datas = FXCollections.observableArrayList();
-            double r = Double.parseDouble(X0TextField.getText());
-            double x0 = Double.parseDouble(RTextField.getText());
+            double r = Double.parseDouble(RTextField.getText());
+            double x0 = Double.parseDouble(X0TextField.getText());
             canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
             IterativeSolver iterativeSolver = new IterativeSolver(r, x0);
             List<Double> results = iterativeSolver.solve(150);
@@ -172,8 +172,8 @@ public class Main extends Application {
         leftButtons.get(TRAJECTORY).setOnAction(event -> {
             chart.setVisible(false);
             canvas.setVisible(true);
-            double r = Double.parseDouble(X0TextField.getText());
-            double x0 = Double.parseDouble(RTextField.getText());
+            double r = Double.parseDouble(RTextField.getText());
+            double x0 = Double.parseDouble(X0TextField.getText());
             canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
             IterativeSolver iterativeSolver = new IterativeSolver(r, x0);
             List<Double> results = iterativeSolver.solve(150);
